@@ -1,0 +1,116 @@
+// POST API TO CREATE A CALENDAR EVENT
+
+//POST 
+// API PATH /calendar/event:
+request payload: {
+    body :{
+        "title": <title of the event>,
+        "startDate": <start date and time in UTC>,
+        "recur": <true/false. by defaut its false>,
+        "participants":<empty array>,
+    }
+}
+
+
+// PUT API TO UPDATE CALENDAR EVENT. USER CAN UPDATE TITLE/DATE/TIME or COMBINATION OF ALL/FEW
+
+PUT /calendar/event:
+request payload: {
+    // PATH param
+    path: {
+        event ID // Its required from clients to recognize which event user wants to modify
+    }
+
+    // IF RECUR is TRUE, then query is applicable. It accepts "modify" query param
+    query: {
+        modify="all" 
+        // All events including the current event providing the current event time is still future time
+        // If current event time is already passed, then it would consider from next event onwards
+        // They can cancel the recurrence anytime in the middle
+    },
+    body: {
+        "title": "<title of the event>",
+        "startDate": "<start date and time in UTC>",
+        "recur": "<true/false. by defaut its false>"",
+    }
+}
+
+
+createCalendarEvent(payload) => {
+    try {
+        Verifies whether user has passed all required info
+        
+        if (allPassed === false) {
+            reject and throw an error. Inform user to pass the missing information
+        } 
+
+        if (recurrence is true in payload)
+            return calling createRecurringEvent(payload) method
+
+        Save the information in db
+
+        return the saved document with all the info that user has provided
+    } catch (error) {
+        return error;
+    }
+}
+
+
+updateCalendarEvent(eventId, payload, queryParams) => {
+    Search for the event document by eventId
+    if (event document DOES NOT exist in DB) {
+        reject and throw an error to pass a valid event ID
+    }
+
+    if (The event with provided event ID has already passed){
+        reject and throw an error "This event has already passed/Past event cannot be modified."
+    }
+
+    if (existing document has no recurrence and user has selected recurrence while updating)
+        return call updateRecurringEvents(eventDocument, eventTime including days and time of the week)
+
+    Update the document in DB with the new information
+
+    return the updated document
+}
+
+getCalendarEventsBetweenDateRange(from, to){
+    // from: today, to: future date
+    // from: past date, to: future date
+    // Note: Not sure whether user wants to fetch past documents. Incase if he/she requests this api considers that too.
+    find documents from "from and to" dates and return them to user.
+
+    // Extra scenarios that needs to be considered
+    // from: is not given, only to is given
+    consider from as a today's date and return documents from today to future date
+
+    // from is given and to is not given
+    return all documents from "from" date to all future event documents    
+}
+
+
+// Create recurring event by choosing days
+createRecurringEvent(payload) => {
+    check for recurring days
+    // this function considers below scenarios 
+    // 1. Days mentioned are the future days which are greater than current day in the current week, 
+    // 2. Few days which are already passed in the current week, in this case it will check for past days in next week
+    // Example for case#2: Current day = Wednesday, user has selected "Monday and Tuesday", then these two days will be considered from next week
+
+    create the document in db
+    return the saved document    
+}
+
+
+// Update recurring events
+updateRecurringEvents(eventDocument, event time to be updated) => {
+    check for recurring days
+    // this function considers below scenarios 
+    // 1. Days mentioned are the future days which are greater than current day in the current week, 
+    // 2. Few days which are already passed in the current week, in this case it will check for past days in next week
+    // Example for case#2: Current day = Wednesday, user has selected "Monday and Tuesday", then these two days will be considered from next week
+
+    Update the document in db
+    return the updated document
+}
+

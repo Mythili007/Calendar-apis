@@ -1,0 +1,28 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mythili007/calendar.git"
+  },
+  "author": "Mythili S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mythili007/calendar/issues"
+  },
+  "homepage": "https://github.com/Mythili007/calendar#readme",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.10",
+    "nodemon": "^2.0.7"
+  }
+}
