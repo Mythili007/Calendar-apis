@@ -18,30 +18,21 @@ POST http://localhost:5001/calendar/event
 content-type: application/json
 
 {
-	"title": "Event9",
+	"title": "Event10",
 	"startTime": "2021-05-26T21:30:39.000Z",
-    "endTime": "2021-05-26T21:30:39.000Z"
-	"description": "My ninth event",
-    "repeatOptions":
-    {
-        "dateInMonth":0,
-        "daysOfWeek":[0,1,1,0,0,0,0],
-        "endDate":"2021-05-22T01:38:00.000Z",
-        "repeat":"weekly",
-        "repeatUntill":"",
-        "weeksInMonth":[0,0,0,0,0],
-        "timeZone":"GMT+05:30"
-    }
+    "endTime": "2021-05-26T21:30:39.000Z",
+    "recur": "false",
+	"description": "My tenth event"
 }
 
 ###
 
-PUT http://localhost:5001/calendar/event/update/60a91cc0e702de02fb5b1759
+PUT http://localhost:5001/calendar/event/update/60aa5d68ecddb43106b211c3
 content-type: application/json
 
 {
-	"title": "Event1_udpated",
-	"startTime": "2021-05-23T13:00:00.000Z",
-	"description": "My first event"
+	"title": "Event10_udpated",
+	"startTime": "2021-05-27T13:00:00.000Z",
+	"description": "My tenth event"
 }
 

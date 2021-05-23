@@ -27,45 +27,52 @@ const calendarSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    repeatOptions: {
-        repeat: {
-            type: String,
-            enum: ["none", "daily", "weekly", "monthly", "yearly"],
-            default: "none",
-        },
-        interval: {
-            type: Number,
-            default: 1,
-        },
-        daysOfWeek: {
-            type: Array,
-            default: [0, 0, 0, 0, 0, 0, 0],
-        },
-        dateInMonth: {
-            type: Number,
-            default: 0,
-        },
-        lastDayOfMonth: {
-            type: Boolean,
-            default: false,
-        },
-        weeksInMonth: {
-            type: Array,
-            default: [0, 0, 0, 0, 0],
-        },
-        endDate: {
-            type: Date,
-            default: Date.now,
-        },
-        repeatUntill: {
-            type: String,
-            default: null,
-        },
-        timeZone: {
-            type: String,
-            default: null,
-        },
-    }
+    parentId: {
+        type: String,
+    },
+    recur: {
+        type: Boolean,
+        default: false,
+    },
+    // repeatOptions: {
+    //     repeat: {
+    //         type: String,
+    //         enum: ["none", "daily", "weekly", "monthly", "yearly"],
+    //         default: "none",
+    //     },
+    //     interval: {
+    //         type: Number,
+    //         default: 1,
+    //     },
+    //     daysOfWeek: {
+    //         type: Array,
+    //         default: [0, 0, 0, 0, 0, 0, 0],
+    //     },
+    //     dateInMonth: {
+    //         type: Number,
+    //         default: 0,
+    //     },
+    //     lastDayOfMonth: {
+    //         type: Boolean,
+    //         default: false,
+    //     },
+    //     weeksInMonth: {
+    //         type: Array,
+    //         default: [0, 0, 0, 0, 0],
+    //     },
+    //     endDate: {
+    //         type: Date,
+    //         default: Date.now,
+    //     },
+    //     repeatUntill: {
+    //         type: String,
+    //         default: null,
+    //     },
+    //     timeZone: {
+    //         type: String,
+    //         default: null,
+    //     },
+    // }
 });
 
 module.exports = mongoose.model('events', calendarSchema);

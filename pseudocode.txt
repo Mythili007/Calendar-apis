@@ -44,6 +44,7 @@ createCalendarEvent(payload) => {
             reject and throw an error. Inform user to pass the missing information
         } 
 
+        // Recurrence is WIP
         if (recurrence is true in payload)
             return calling createRecurringEvent(payload) method
 
@@ -89,7 +90,7 @@ getCalendarEventsBetweenDateRange(from, to){
 }
 
 
-// Create recurring event by choosing days
+// Create recurring event by choosing days - Recurrence is WIP
 createRecurringEvent(payload) => {
     check for recurring days
     // this function considers below scenarios 
@@ -102,7 +103,7 @@ createRecurringEvent(payload) => {
 }
 
 
-// Update recurring events
+// Update recurring events - Recurrence is WIP
 updateRecurringEvents(eventDocument, event time to be updated) => {
     check for recurring days
     // this function considers below scenarios 
