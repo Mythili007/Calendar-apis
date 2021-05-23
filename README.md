@@ -13,7 +13,7 @@
     ├── test                    # Unit tests (chai and mocha based)
     ├── index.js                # Source file to start the node service
     ├── pseudocode.txt          # Pseudo code for all the apis. Recurring pseudo code is added
-    ├── test.http               # Apis are tested using vscode extension ![REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+    ├── test.http               # Apis are tested using vscode extension [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
     └── README.md               # Full documentation about the My calendar apis
 
 ## Run the service
