@@ -16,6 +16,9 @@
     "url": "https://github.com/Mythili007/calendar/issues"
   },
   "homepage": "https://github.com/Mythili007/calendar#readme",
+  "engines": {
+    "node": "12.16.3"
+  },
   "dependencies": {
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
