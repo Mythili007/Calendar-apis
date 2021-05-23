@@ -7,10 +7,17 @@
 
 # Folder structure
     .
-    ├── rest                    # Rest later where all apis are written
+    ├── rest                    # Rest layer where all apis are written
+    │   ├── calendar.rest.js    # APIs
     ├── services                # Service layer which handles business logic
+    │   ├── CalendarService.js  # Service file
     ├── models                  # Model layer for database model methods
+    │   ├── calendar.schema.js  # DB schema for event
     ├── test                    # Unit tests (chai and mocha based)
+    │   ├── fixtures            # Calendar fixture
+    |   |   ├── calendar.fixture.js  # Test data
+    │   ├── Services            # Tests for service files
+    │   |   ├── calendar.test.js     # Unit tests for APIs
     ├── index.js                # Source file to start the node service
     ├── pseudocode.txt          # Pseudo code for all the apis. Recurring pseudo code is added
     ├── test.http               # Apis are tested using vscode extension [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
