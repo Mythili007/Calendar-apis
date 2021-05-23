@@ -1,4 +1,20 @@
-# calendar
+# My calendar
+    My calendar project is to create events for a specific date and time, update specific event by just passing the event id. Support for fetching all the documents between the given the date range is also handled. Get events api is developed in such a way that user can optionally pass "from" and "to" dates.
+
+    NOTE: The database is hosted on cloud using mongodb atlas where a cluster has been created and all the documents would be stored under "events" collection in Calendar database.
+
+    Pseudo code: pseudocode.txt file can be found in the main folder.
+
+# Folder structure
+    .
+    ├── rest                    # Rest later where all apis are written
+    ├── services                # Service layer which handles business logic
+    ├── models                  # Model layer for database model methods
+    ├── test                    # Unit tests (chai and mocha based)
+    ├── index.js                # Source file to start the node service
+    ├── pseudocode.txt          # Pseudo code for all the apis. Recurring pseudo code is added
+    ├── test.http               # Apis are tested using vscode extension ![REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)
+    └── README.md               # Full documentation about the My calendar apis
 
 ## Run the service
     node index.js
